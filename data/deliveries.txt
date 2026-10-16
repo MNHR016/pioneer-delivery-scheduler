@@ -1,0 +1,9 @@
+# Delivery ID, start time, finish time
+id,start,finish
+D01,10,13
+D02,2,5
+D03,4,7
+D04,1,8
+D05,8,11
+D06,11,14
+D07,13,16
