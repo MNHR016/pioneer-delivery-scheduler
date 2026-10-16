@@ -92,32 +92,6 @@ Sorting takes `O(n log n)` and each heap update is `O(log n)` over `n` jobs. Ove
 
 This is the flip side of single-driver selection: if there are `n` requests and we can keep at most `k` compatible requests, we must reject exactly **`n - k`**. We reuse the earliest-finish algorithm rather than writing a separate scheduler. Overall: **`O(n log n)`**.
 
-### 4. Why profit-first doesn't always work
-
-Suppose flexible requests take one time slot each. A job has a ready time `R` and profit `P`. If it runs at time `T`, its value is `P / (1 + T - R)`. The proposed strategy takes requests in decreasing profit order and puts each into its earliest free slot after its ready time.
-
-| Job | Ready time | Profit |
-| --- | ---: | ---: |
-| A | 0 | 10 |
-| B | 0 | 9 |
-| C | 1 | 8 |
-
-**Profit-first greedy schedule:** A at slot 0, B at slot 1, C at slot 2.
-
-- A: `10 / (1 + 0) = 10`
-- B: `9 / (1 + 1) = 4.5`
-- C: `8 / (1 + 1) = 4`
-- **Total `V(G) = 18.5`**
-
-**Better schedule:** A at slot 0, C at slot 1, B at slot 2.
-
-- A: `10 / (1 + 0) = 10`
-- C: `8 / (1 + 0) = 8`
-- B: `9 / (1 + 2) = 3`
-- **Total `V(S) = 21`**
-
-Both schedules follow the ready-time and one-job-per-slot rules. Since `21 > 18.5`, the greedy strategy is **not always optimal**. The interesting part is that delaying B frees C to run right when it's ready, and the gain is bigger than B's lost value.
-
 ## Test results
 
 These cases check empty data, single deliveries, back-to-back slots, overlapping requests, unsorted input, and equal finish times.
@@ -129,7 +103,7 @@ These cases check empty data, single deliveries, back-to-back slots, overlapping
 | Back-to-back `(1,3),(3,5),(5,7)` | 3 | 1 | 0 |
 | All overlap `(1,5),(2,6),(3,7)` | 1 | 3 | 2 |
 
-Additional required cases have different input sets for each feature:
+Additional scenarios use different input sets for each feature:
 
 | Feature | Test 5 | Test 6 |
 | --- | --- | --- |
@@ -137,12 +111,12 @@ Additional required cases have different input sets for each feature:
 | Drivers | `(1,4),(2,5),(4,7),(5,8)` → **2** | `(5,8),(1,4),(2,5),(4,6),(6,9)` → **2** |
 | Rejections | `(5,7),(1,3),(3,5),(2,4)` → **1** | `(1,2),(2,3),(3,4),(1,3)` → **1** |
 
-All **18 required feature scenarios** are covered by `tests/test_scheduler.py`, along with input-validation tests.
+All **18 scheduling scenarios** are covered by `tests/test_scheduler.py`, along with input-validation tests.
 
 ## Project layout
 
 ```text
-delivery-scheduler/
+pioneer-delivery-scheduler/
 ├── delivery_scheduler/
 │   ├── __init__.py       # Public functions and data model
 │   ├── __main__.py       # Command-line entry point
