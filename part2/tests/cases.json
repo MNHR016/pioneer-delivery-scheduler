@@ -1,0 +1,27 @@
+{
+  "closest": [
+    {"name": "A1", "points": [["A", 0, 0], ["B", 3, 4]], "expected": 25, "pair": ["A", "B"]},
+    {"name": "A2", "points": [["A", 0, 0], ["B", 7, 2], ["C", 4, 5], ["D", 5, 5], ["E", 12, 2], ["F", 2, 9]], "expected": 1, "pair": ["C", "D"]},
+    {"name": "A3", "points": [["A", -3, 1], ["B", -3, 11], ["C", 1, 1], ["D", 2, 15]], "expected": 16, "pair": ["A", "C"]},
+    {"name": "A4", "points": [["A", -5, -5], ["B", -5, -2], ["C", 6, 8]], "expected": 9, "pair": ["A", "B"]},
+    {"name": "A5_tied_minima", "points": [["A", 0, 0], ["B", 0, 1], ["C", 1, 0], ["D", 1, 1]], "expected": 1},
+    {"name": "A6_equal_x_cross_split", "points": [["A", 2, 0], ["B", 2, 10], ["C", 2, 11], ["D", 2, 30]], "expected": 1, "pair": ["B", "C"]}
+  ],
+  "inversions": [
+    {"name": "B1", "planned": ["A", "B", "C", "D", "E"], "actual": ["A", "C", "D", "B", "E"], "expected": 2},
+    {"name": "B2", "planned": ["A", "B", "C", "D"], "actual": ["A", "B", "C", "D"], "expected": 0},
+    {"name": "B3", "planned": ["A", "B", "C", "D"], "actual": ["D", "C", "B", "A"], "expected": 6},
+    {"name": "B4", "planned": ["A"], "actual": ["A"], "expected": 0},
+    {"name": "B5_nonlexical_plan", "planned": ["Z", "A", "M", "B"], "actual": ["A", "Z", "B", "M"], "expected": 2}
+  ],
+  "select": [
+    {"name": "C1", "times": [18, 4, 29, 11, 4, 16, 35, 9, 22], "k": 5, "expected": 16},
+    {"name": "C2", "times": [18, 4, 29, 11, 4, 16, 35, 9, 22], "k": 2, "expected": 4},
+    {"name": "C3", "times": [18, 4, 29, 11, 4, 16, 35, 9, 22], "k": 9, "expected": 35},
+    {"name": "C4", "times": [7, 7, 7, 7, 7, 7], "k": 4, "expected": 7},
+    {"name": "C5", "times": [8, 3], "k": 1, "expected": 3},
+    {"name": "C6_sorted", "times": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11], "k": 7, "expected": 6},
+    {"name": "C7_reverse", "times": [11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0], "k": 7, "expected": 6},
+    {"name": "C8_single_zero", "times": [0], "k": 1, "expected": 0}
+  ]
+}

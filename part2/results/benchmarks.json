@@ -1,0 +1,28 @@
+{
+  "python": "3.14.7",
+  "platform": "Darwin",
+  "machine": "arm64",
+  "seed": 416,
+  "repeats": 7,
+  "statistic": "median milliseconds",
+  "sizes": [
+    {
+      "n": 100,
+      "closest_ms": 0.19566714763641357,
+      "inversions_ms": 0.11900067329406738,
+      "select_ms": 0.029958784580230713
+    },
+    {
+      "n": 1000,
+      "closest_ms": 2.45608389377594,
+      "inversions_ms": 1.1138757690787315,
+      "select_ms": 0.21733343601226807
+    },
+    {
+      "n": 5000,
+      "closest_ms": 8.854792453348637,
+      "inversions_ms": 4.716292023658752,
+      "select_ms": 0.4597911611199379
+    }
+  ]
+}

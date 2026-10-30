@@ -1,0 +1,19 @@
+test_examples (test_analysis.ClosestTests.test_examples) ... ok
+test_invalid_inputs (test_analysis.ClosestTests.test_invalid_inputs) ... ok
+test_large_integer_coordinates (test_analysis.ClosestTests.test_large_integer_coordinates) ... ok
+test_random_against_brute_force (test_analysis.ClosestTests.test_random_against_brute_force) ... ok
+test_bad_files_and_shapes (test_analysis.CommandLineTests.test_bad_files_and_shapes) ... ok
+test_sample_files (test_analysis.CommandLineTests.test_sample_files) ... ok
+test_examples (test_analysis.InversionTests.test_examples) ... ok
+test_invalid_inputs (test_analysis.InversionTests.test_invalid_inputs) ... ok
+test_large_count (test_analysis.InversionTests.test_large_count) ... ok
+test_random_against_nested_loops (test_analysis.InversionTests.test_random_against_nested_loops) ... ok
+test_examples (test_analysis.SelectionTests.test_examples) ... ok
+test_invalid_inputs (test_analysis.SelectionTests.test_invalid_inputs) ... ok
+test_many_duplicates (test_analysis.SelectionTests.test_many_duplicates) ... ok
+test_random_all_ranks_against_sorting (test_analysis.SelectionTests.test_random_all_ranks_against_sorting) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 0.776s
+
+OK
